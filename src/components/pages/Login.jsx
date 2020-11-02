@@ -9,7 +9,7 @@ const authentication = e => {
     "email":form.email.value,
     "password":form.password.value
   }
-  axios.post("https://api-edteam.alejogs4.now.sh/login",data,{
+  axios.post(`${process.env.REACT_APP_API_USER}/login`,data,{
     headers:{
       "Content-Type":"application/json"
     }
@@ -18,7 +18,9 @@ const authentication = e => {
     localStorage.setItem('token',res.data.token)
     window.location="/"
   })
-  .catch(err=>console.error(err))
+  .catch(err=>{
+    alert('Error al iniciar sesion')
+  })
   
 }
 
@@ -29,14 +31,20 @@ const authentication = e => {
       <div className="m-to-center m-60 lg-30">
         <h1 className="center">Iniciar Sesión</h1>
         <form onSubmit={authentication}>
-          <div className="form___item">
-            <label htmlFor="email">
+          <div className="form___item l-block" >
+            <label style={{
+              color:'#2883E0',
+              fontSize:'.96rem',
+            }} htmlFor="email">
               Correo Electrónico
               <input required type="email" name="email" id="email" placeholder="Ingrese su email"/>
             </label>
           </div>
-          <div className="form___item">
-            <label htmlFor="password">
+          <div className="form___item l-block">
+            <label style={{
+              color:'#2883E0',
+              fontSize:'.96rem',
+            }} htmlFor="password">
               Contraseña
               <input required type="password" name="password" id="password" placeholder="Ingrese su contraseña"/>
             </label>

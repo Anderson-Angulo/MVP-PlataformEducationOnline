@@ -55,14 +55,14 @@ export const getPost=(id)=>async dispatch=>{
   })
 }
 export const getSpeciality=(id)=>async dispatch=>{
-  const speciality=await axios.get(`${API_URL}/especialidades/${id}`)
+  const speciality=await axios.get(`${API_URL}/especialidad/${id}`)
   return dispatch({
     type:GET_SPECIALITY,
     speciality:speciality.data
   })
 }
 export const getCourse=(id)=>async dispatch=>{
-  const course=await axios.get(`${API_URL}/cursos/${id}`)
+  const course=await axios.get(`${API_URL}/curso/${id}`)
   return dispatch({
     type:GET_COURSE,
     course:course.data

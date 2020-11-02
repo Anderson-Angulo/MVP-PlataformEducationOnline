@@ -7,6 +7,6 @@ export const Protected = ({component:Component,...rest}) => {
     return <Redirect to="/login" />
   }
   return (
-    <Route {...rest} render={Component} />
+    <Route {...rest} component={Component} />
   )
 }

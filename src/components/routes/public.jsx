@@ -9,7 +9,7 @@ const Public=({component:Component,...rest})=>{
     )
   }
   return (
-    <Route {...rest} render={Component} />
+    <Route {...rest} component={Component} />
   )
 }
 
